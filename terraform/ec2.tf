@@ -148,7 +148,7 @@ resource "aws_eip" "royal-nat-eip" {
 # Create a NAT Gateway for the private subnets to access the internet
 resource "aws_nat_gateway" "royal-nat-gw" {
   allocation_id = aws_eip.royal-nat-eip.id
-  subnet_id     = aws_subnet.public-1.id
+  subnet_id     = aws_subnet.public-2.id
   tags = {
     Name = "royal-nat-gw"
     Unit = "wordpress"
