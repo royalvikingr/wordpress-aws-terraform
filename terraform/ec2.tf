@@ -1,5 +1,5 @@
 # Create Command Host EC2 instance
-resource "aws_instance" "command-host" {
+resource "aws_instance" "bastion-host" {
   ami                         = data.aws_ami.latest-linux-ami.id
   instance_type               = var.ec2-instance-type
   availability_zone           = var.az1
@@ -9,7 +9,7 @@ resource "aws_instance" "command-host" {
   subnet_id                   = aws_subnet.public-1.id
 
   tags = {
-    Name = "royal-command-host"
+    Name = "royal-bastion-host"
     Unit = "wordpress"
   }
 

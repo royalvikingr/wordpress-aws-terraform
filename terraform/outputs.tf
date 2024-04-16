@@ -14,6 +14,6 @@ output "elastic-ip" {
 }
 
 # Output the IP of the command host
-output "command-host-ip" {
-  value = aws_instance.command-host.public_ip
+output "bastion-host-ip" {
+  value = aws_instance.bastion-host.public_ip
 }
