@@ -11,7 +11,7 @@ In this project, I deploy a scalable, fault-tolerant, and highly-available [Word
 All the values necessary for a quick adjustment of the environment are defined as variables in the [variables.tf](/terraform/variables.tf) file, making it easy to eg. deploy the server in another AWS Region.
 
 ### Infrastructure
-![Infrastructure Diagram with a VPC comprised of 2 Availability Zones containing 1 public and 1 private subnet each. One public subnet contains the command host EC2 machine, both public subnets contain 2 members of the associated Auto Scaling group. Both private subnets contain one RDS instance running MariaDB.](/pictures/aws-wordpress-terraform.drawio.png)
+![Infrastructure Diagram with a VPC comprised of 2 Availability Zones containing 1 public and 1 private subnet each. One public subnet contains the command host EC2 machine, both public subnets contain 2 members of the associated Auto Scaling group. Both private subnets contain one RDS instance running MariaDB.](/pictures/infrastructure-diagram-wordpress-aws-terraform.drawio.png)
 
 ### A word on S3
 This setup does not contain an S3 bucket. Such a bucket could be used to store a SQL dump from which to restore an existing database, however, this repo is meant to provide the infrastructure for a quick setup of a new WordPress website, which can then be customized to the user's liking.
