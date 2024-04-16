@@ -14,7 +14,6 @@ resource "aws_db_instance" "royal-wp-db" {
   engine                 = var.db-engine
   username               = var.db-username
   password               = var.db-password
-  db_name                = var.db-name
   publicly_accessible    = false
   deletion_protection    = false
   skip_final_snapshot    = true
