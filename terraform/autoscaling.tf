@@ -16,7 +16,7 @@ resource "aws_launch_template" "wp-launch-template" {
 #Create autoscaling group with ELB health check
 resource "aws_autoscaling_group" "wp-asg" {
   name                      = "wp-asg"
-  vpc_zone_identifier       = [aws_subnet.public-1.id, aws_subnet.public-2.id]
+  vpc_zone_identifier       = [aws_subnet.private-1.id, aws_subnet.private-2.id]
   target_group_arns         = [aws_lb_target_group.wordpress-tg.id]
   max_size                  = var.max-instances
   min_size                  = var.min-instances
