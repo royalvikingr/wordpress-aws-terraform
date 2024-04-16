@@ -38,7 +38,6 @@ find /var/www -type f -exec chmod 0664 {} \;
 
 # Create Wordpress database, then clean up
 echo "CREATE DATABASE $DBName;" >> /tmp/db.setup
-#echo "CREATE USER '$DBUser'@'localhost' IDENTIFIED BY '$DBPassword';" >> /tmp/db.setup
 echo "GRANT ALL ON $DBName.* TO '$DBUser'@'$DBEndpoint';" >> /tmp/db.setup
 echo "FLUSH PRIVILEGES;" >> /tmp/db.setup
 mysql --user=$DBUser --password=$DBPassword --host=$DBEndpoint < /tmp/db.setup
