@@ -31,7 +31,7 @@ variable "rds-instance-storage" {
   default = "20"
 }
 
-variable "database-engine" {
+variable "db-engine" {
   default = "mariadb"
 }
 
