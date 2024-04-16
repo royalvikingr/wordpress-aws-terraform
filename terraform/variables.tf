@@ -1,7 +1,8 @@
 ### account environment key
 
 variable "key-name" {
-  default = "vockey" # using the key of the AWS Restart Program lab environment; use your own key!
+  default   = "vockey" # using the key of the AWS Restart Program lab environment; use your own key!
+  sensitive = true
 }
 
 ### AWS infrastructure variables
@@ -41,23 +42,23 @@ variable "pub-cidr" {
 }
 
 variable "vpc-cidr" {
-  default = "10.0.0.0/16"
+  default = "10.0.0.0/24"
 }
 
 variable "pubnet1-cidr" {
-  default = "10.0.1.0/24"
-}
-
-variable "privnet1-cidr" {
-  default = "10.0.2.0/24"
+  default = "10.0.0.0/26"
 }
 
 variable "pubnet2-cidr" {
-  default = "10.0.3.0/24"
+  default = "10.0.0.64/26"
+}
+
+variable "privnet1-cidr" {
+  default = "10.0.0.128/26"
 }
 
 variable "privnet2-cidr" {
-  default = "10.0.4.0/24"
+  default = "10.0.0.192/26"
 }
 
 ### DB variables

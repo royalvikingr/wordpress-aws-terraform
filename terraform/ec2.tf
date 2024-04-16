@@ -1,5 +1,5 @@
-# Create an EC2 instance
-resource "aws_instance" "wp-instance" {
+# Create Command Host EC2 instance
+resource "aws_instance" "command-host" {
   ami                         = data.aws_ami.latest-linux-ami.id
   instance_type               = var.ec2-instance-type
   availability_zone           = var.az1
@@ -7,10 +7,9 @@ resource "aws_instance" "wp-instance" {
   key_name                    = var.key-name
   vpc_security_group_ids      = [aws_security_group.allow-http.id, aws_security_group.allow-ssh.id]
   subnet_id                   = aws_subnet.public-1.id
-  count                       = 1
 
   tags = {
-    Name = "royal-wp-instance"
+    Name = "royal-command-host"
     Unit = "wordpress"
   }
 
@@ -169,7 +168,7 @@ resource "aws_route_table" "royal-pub-rtb" {
   }
 }
 
-# Create a Route Table for Private Subnet(s)
+# Create a route table for private subnets
 resource "aws_route_table" "royal-priv-rtb" {
   vpc_id = aws_vpc.royal-vpc.id
   route {
@@ -189,18 +188,18 @@ resource "aws_route_table_association" "pubnet1-asso" {
   depends_on     = [aws_route_table.royal-pub-rtb, aws_subnet.public-1]
 }
 
-# Associate the private route table with private subnet 1
-resource "aws_route_table_association" "privnet1-asso" {
-  route_table_id = aws_route_table.royal-priv-rtb.id
-  subnet_id      = aws_subnet.private-1.id
-  depends_on     = [aws_route_table.royal-priv-rtb, aws_subnet.private-1]
-}
-
 # Associate the public route table with public subnet 2
 resource "aws_route_table_association" "pubnet2-asso" {
   route_table_id = aws_route_table.royal-pub-rtb.id
   subnet_id      = aws_subnet.public-2.id
   depends_on     = [aws_route_table.royal-pub-rtb, aws_subnet.public-2]
+}
+
+# Associate the private route table with private subnet 1
+resource "aws_route_table_association" "privnet1-asso" {
+  route_table_id = aws_route_table.royal-priv-rtb.id
+  subnet_id      = aws_subnet.private-1.id
+  depends_on     = [aws_route_table.royal-priv-rtb, aws_subnet.private-1]
 }
 
 # Associate the private route table with private subnet 2

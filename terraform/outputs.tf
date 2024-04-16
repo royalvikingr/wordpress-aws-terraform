@@ -12,3 +12,8 @@ output "db-endpoint" {
 output "elastic-ip" {
   value = aws_eip.royal-nat-eip.public_ip
 }
+
+# Output the IP of the command host
+output "command-host-ip" {
+  value = aws_instance.command-host.public_ip
+}

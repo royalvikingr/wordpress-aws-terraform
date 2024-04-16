@@ -21,16 +21,6 @@ resource "aws_subnet" "public-1" {
   }
 }
 
-resource "aws_subnet" "private-1" {
-  vpc_id            = aws_vpc.royal-vpc.id
-  cidr_block        = var.privnet1-cidr
-  availability_zone = var.az1
-  tags = {
-    Name = "royal-privnet1"
-    Unit = "wordpress"
-  }
-}
-
 resource "aws_subnet" "public-2" {
   vpc_id                  = aws_vpc.royal-vpc.id
   cidr_block              = var.pubnet2-cidr
@@ -38,6 +28,16 @@ resource "aws_subnet" "public-2" {
   map_public_ip_on_launch = true
   tags = {
     Name = "royal-pubnet2"
+    Unit = "wordpress"
+  }
+}
+
+resource "aws_subnet" "private-1" {
+  vpc_id            = aws_vpc.royal-vpc.id
+  cidr_block        = var.privnet1-cidr
+  availability_zone = var.az1
+  tags = {
+    Name = "royal-privnet1"
     Unit = "wordpress"
   }
 }
