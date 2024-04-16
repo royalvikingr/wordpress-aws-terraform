@@ -7,7 +7,7 @@ variable "key-name" {
 ### AWS infrastructure variables
 
 variable "aws-region" {
-  default     = "us-west-2"
+  default = "us-west-2"
 }
 
 variable "az1" {
@@ -71,5 +71,28 @@ variable "db-username" {
 }
 
 variable "db-password" {
-  default = "r0y4LV1k!nGr"
+  default   = "r0y4LV1k!nGr"
+  sensitive = true
+}
+
+### Auto Scaling variables
+
+variable "max-instances" {
+  description = "the maximum number of instances the auto scaling group is allowed to have"
+  default     = "4"
+}
+
+variable "min-instances" {
+  description = "the minimum number of instances the auto scaling group must have"
+  default     = "1"
+}
+
+variable "desired-instances" {
+  description = "the desired number of instances the auto scaling should balance out on"
+  default     = "1"
+}
+
+variable "scale-out-threshold" {
+  description = "the CPU utilization threshold for scaling out"
+  default     = "60.0"
 }

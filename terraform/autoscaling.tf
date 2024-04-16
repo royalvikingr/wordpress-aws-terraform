@@ -18,9 +18,9 @@ resource "aws_autoscaling_group" "wp-asg" {
   name                      = "wp-asg"
   vpc_zone_identifier       = [aws_subnet.public-1.id, aws_subnet.public-2.id]
   target_group_arns         = [aws_lb_target_group.wordpress-tg.id]
-  max_size                  = 4
-  min_size                  = 1
-  desired_capacity          = 1
+  max_size                  = var.max-instances
+  min_size                  = var.min-instances
+  desired_capacity          = var.desired-instances
   health_check_type         = "ELB"
   health_check_grace_period = 300
 
@@ -45,6 +45,6 @@ resource "aws_autoscaling_policy" "wp-policy" {
     predefined_metric_specification {
       predefined_metric_type = "ASGAverageCPUUtilization"
     }
-    target_value = 40.0
+    target_value = var.scale-out-threshold
   }
 }
