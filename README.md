@@ -7,7 +7,7 @@ This project aims to provide you with the code and tools necessary to deploy a s
 - AWS CLI installed and configured with your credentials on your machine
 - Terraform installed on you machine
 - (optional) a text editor or IDE for making changes to the variables (or even the rest of the code)
-- (optional) git for cloning this repo to your local machine without having to manually copy-paste the individual files
+- (optional) git for cloning this repo to your local machine
 
 ### AWS services used
 - VPC
