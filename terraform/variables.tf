@@ -8,30 +8,37 @@ variable "key-name" {
 ### AWS infrastructure variables
 
 variable "aws-region" {
+  description = "the AWS Region in which you want to deploy your webserver"
   default = "us-west-2"
 }
 
 variable "az1" {
+  description = "the first Availability Zone of that AWS Region"
   default = "us-west-2a"
 }
 
 variable "az2" {
+  description = "the second Availability Zone of that AWS Region"
   default = "us-west-2b"
 }
 
 variable "ec2-instance-type" {
+  description = "the instance type you want to use for the webserver"
   default = "t2.micro"
 }
 
 variable "rds-instance-class" {
+  description = "the instance type you want to use for the database"
   default = "db.t3.micro"
 }
 
 variable "rds-instance-storage" {
+  description = "the amount of storage allocated to the database instance in gibibyte"
   default = "20"
 }
 
 variable "db-engine" {
+  description = "the database engine, ie. type of database server, to be used on the rds instance"
   default = "mariadb"
 }
 
@@ -76,12 +83,12 @@ variable "db-name" {
 
 variable "db-username" {
   description = "username for accessing the MariaDB database"
-  default     = "royalvikingr"
+  default     = "royalvikingr" # you will want to change this to something of your own
 }
 
 variable "db-password" {
   description = "password for accessing the MariaDB database"
-  default     = "r0y4LV1k!nGr"
+  default     = "r0y4LV1k!nGr" # you will want to change this to something of your own
   sensitive   = true
 }
 
