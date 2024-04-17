@@ -1,6 +1,13 @@
-## Deploying a WordPress server on AWS using Terraform
+## Deploying a WordPress-based website on AWS using Terraform
 
-In this project, I deploy a scalable, fault-tolerant, and highly-available [WordPress](https://wordpress.com/) server on [AWS](https://aws.amazon.com/) using the Infrastructure as Code (IaC) tool [Terraform](https://www.terraform.io/).
+This project aims to provide you with the code and tools necessary to deploy a scalable, fault-tolerant, and highly-available [WordPress](https://wordpress.com/) website on [AWS](https://aws.amazon.com/) infrastructure using the Infrastructure as Code (IaC) tool [Terraform](https://www.terraform.io/).
+
+### Prerequisites
+- an AWS account
+- AWS CLI installed and configured with your credentials on your machine
+- Terraform installed on you machine
+- (optional) a text editor or IDE for making changes to the variables (or even the rest of the code)
+- (optional) git for cloning this repo to your local machine without having to manually copy-paste the individual files
 
 ### AWS services used
 - VPC
