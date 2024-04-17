@@ -38,42 +38,51 @@ variable "db-engine" {
 ### IP variables
 
 variable "pub-cidr" {
-  default = "0.0.0.0/0"
+  description = "the CIDR block describing the internet"
+  default     = "0.0.0.0/0"
 }
 
 variable "vpc-cidr" {
-  default = "10.0.0.0/24"
+  description = "the CIDR range of the VPC"
+  default     = "10.0.0.0/24"
 }
 
 variable "pubnet1-cidr" {
-  default = "10.0.0.0/26"
+  description = "the CIDR range of the public subnet 1"
+  default     = "10.0.0.0/26"
 }
 
 variable "pubnet2-cidr" {
-  default = "10.0.0.64/26"
+  description = "the CIDR range of the public subnet 2"
+  default     = "10.0.0.64/26"
 }
 
 variable "privnet1-cidr" {
-  default = "10.0.0.128/26"
+  description = "the CIDR range of the private subnet 1"
+  default     = "10.0.0.128/26"
 }
 
 variable "privnet2-cidr" {
-  default = "10.0.0.192/26"
+  description = "the CIDR range of the private subnet 2"
+  default     = "10.0.0.192/26"
 }
 
 ### DB variables
 
 variable "db-name" {
-  default = "wordpressdb"
+  description = "name of the database running on the MariaDB server on the RDS instance"
+  default     = "wordpressdb"
 }
 
 variable "db-username" {
-  default = "royalvikingr"
+  description = "username for accessing the MariaDB database"
+  default     = "royalvikingr"
 }
 
 variable "db-password" {
-  default   = "r0y4LV1k!nGr"
-  sensitive = true
+  description = "password for accessing the MariaDB database"
+  default     = "r0y4LV1k!nGr"
+  sensitive   = true
 }
 
 ### Auto Scaling variables

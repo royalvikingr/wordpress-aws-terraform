@@ -73,7 +73,7 @@ resource "aws_lb_listener" "wordpress-http-listener" {
   }
 } */
 
-# Create target group attachment; attaching WP instance so I can reach the WP server via ALB DNS name
+# Create target group attachment
 resource "aws_lb_target_group_attachment" "wordpress-tg-attach" {
   target_group_arn = aws_lb_target_group.wordpress-tg.arn
   target_id        = aws_instance.bastion-host.id
